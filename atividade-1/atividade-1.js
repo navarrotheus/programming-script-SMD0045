@@ -9,7 +9,9 @@ function somaOuSubtrai(soma, x, y) {
 
 // comportamento esperado
 console.log('Comportamento esperado: ', somaOuSubtrai(false, 3, 1));
+// retorna 2 -> subtrai
 
 // comportamento inesperado gerado por conta da tipagem fraca:
 // uma string (nao vazia) é um valor truthy, ou seja, irá retornar verdadeiro quando convertido para booleano
 console.log('Comportamento inesperado: ', somaOuSubtrai('false', 3, 1));
+// retorna 4 -> soma
