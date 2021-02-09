@@ -9,7 +9,7 @@ for i in range(1000):
         print(i+1) 
 ```
 
-Para testar, abra o terminal, entre na pasta e execute:
+Para testar, tenha o python instalado e execute:
 ```bash
 python atividade-3.py
 # ou
