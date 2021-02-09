@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Prototipo</title>
+	<script>
+		function click(){
+			const xhttp = new XMLHttpRequest();
+			const output = document.getElementById("output").innerHTML;
+
+			xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("output").innerHTML =
+                    `Você acessou minha rota do servidor via AJAX, resposta enviada: ${this.responseText}`;
+                }
+			};
+
+			xhttp.open("GET", "minha-rota", true);
+			xhttp.send();
+
+		}
+	</script>
+</head>
+
+<body>
+    <div id="output">
+        <p>Ola! Esse eh meu HTML!</p>
+    </div>
+    <br />
+    <button onclick="click()">Fazer requisição via AJAX</button>
+</body>
+
+</html>
