@@ -87,6 +87,19 @@ export const Title = styled.div`
     div {
         display: flex;
         p {
+            display: flex;
+            align-items: center;
+            svg {
+                color: #F25D27;
+                margin-left: 6px;
+                transition: 0.3s;
+                
+                ${({ asc }) => asc && css`
+                    transform: rotateX(180deg);
+                `}
+
+            }
+
             color: #A0ACB2;
             font-family: Roboto;
             font-weight: normal;
@@ -97,6 +110,9 @@ export const Title = styled.div`
 
             :hover {
                 color: ${darken(0.2, "#A0ACB2")};
+                svg {
+                    color: ${darken(0.2, "#F25D27")};
+                }
             }
 
             :last-child {

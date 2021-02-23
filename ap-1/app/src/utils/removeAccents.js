@@ -6,7 +6,7 @@ function slugify (str) {
         'o' : 'ó|ò|ô|õ|Ó|Ò|Ô|Õ',
         'u' : 'ú|ù|û|ü|Ú|Ù|Û|Ü',
         'c' : 'ç|Ç',
-        'n' : 'ñ|Ñ'
+        'n' : 'ñ|Ñ',
     };
     
     for (const pattern in map) {
