@@ -1,27 +1,43 @@
+import { useState, useEffect } from 'react';
 import { Header, Container, Content, Title, List } from './styles';
+import { FiSearch } from 'react-icons/fi';
 import Logo from '../../assets/logo.svg';
-import Procurar from '../../assets/Procurar.svg';
 import CityCard from '../../components/CityCard';
-import City1 from '../../assets/cities/city1.jpg'
-import City2 from '../../assets/cities/city2.jpg'
-import City3 from '../../assets/cities/city3.jpg'
-import City4 from '../../assets/cities/city4.jpg'
-import City5 from '../../assets/cities/city5.jpg'
-import City6 from '../../assets/cities/city6.jpg'
-import City7 from '../../assets/cities/city7.jpg'
-import City8 from '../../assets/cities/city8.jpg'
-import City9 from '../../assets/cities/city9.jpg'
-import City10 from '../../assets/cities/city10.jpg'
+import citiesMock from '../../cities.mock';
+import removeAccents from '../../utils/removeAccents';
 
 const Cities = () => {
+    const [cities, setCities] = useState(citiesMock);
+    const [cityName, setCityName] = useState("");
+    const [isInputFocused, setIsInputFocused] = useState(false);
+
+    useEffect(() => {
+        if (cityName) {
+            const filteredCities = citiesMock.filter(city =>
+                removeAccents(city.name).match(new RegExp(cityName, "gi"))
+            );
+            setCities(filteredCities);
+        } else {
+            setCities(citiesMock);
+        }
+    }, [cityName])
+
     return (
         <Container>
-            <Header>
+            <Header isInputFocused={isInputFocused} isInputFilled={!!cityName}>
                 <img src={Logo} alt="Logo"/>
 
                 <div>
-                    <img src={Procurar} alt="Procurar"/>
-                    <input placeholder="Qual cidade você procura?" />
+
+                    <FiSearch/>
+                    <input 
+                        type="text"
+                        value={cityName}
+                        placeholder="Qual cidade você procura?"
+                        onChange={e => setCityName(e.target.value)}
+                        onFocus={() => setIsInputFocused(true)}
+                        onBlur={() => setIsInputFocused(false)}
+                    />
                 </div>
 
                 <button>Sair</button>
@@ -36,16 +52,13 @@ const Cities = () => {
                     </div>
                 </Title>
                 <List>
-                    <CityCard image={City1} name="Águas mornas" localQuantity={13}/>
-                    <CityCard image={City2} name="Bombinhas" localQuantity={43}/>
-                    <CityCard image={City3} name="Blumenau" localQuantity={16}/>
-                    <CityCard image={City4} name="Florianópolis" localQuantity={22}/>
-                    <CityCard image={City5} name="Imbituba" localQuantity={8}/>
-                    <CityCard image={City6} name="Jaraguá do Sul" localQuantity={19}/>
-                    <CityCard image={City7} name="Lages" localQuantity={25}/>
-                    <CityCard image={City8} name="Rio do Sul" localQuantity={20}/>
-                    <CityCard image={City9} name="Jericoacoara" localQuantity={34}/>
-                    <CityCard image={City10} name="Pipa" localQuantity={33}/>
+                    {cities.map(city =>
+                        <CityCard
+                            image={city.image}
+                            name={city.name}
+                            localQuantity={city.localQuantity}
+                        />)
+                    }
                 </List>
             </Content>
         </Container>

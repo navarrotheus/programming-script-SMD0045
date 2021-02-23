@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { darken } from 'polished';
 
@@ -11,9 +11,16 @@ export const Header = styled.header`
     align-items: center;
     justify-content: space-between;
 
-    img {
-        cursor: pointer;
+    svg {
+        color: #A0ACB3;
+        transition: 0.2s;
     }
+
+    ${({ isInputFocused, isInputFilled }) => (isInputFocused || isInputFilled) && css`
+        svg {
+            color: #F25D27;
+        }
+    `}
 
     div {
         display: flex;
