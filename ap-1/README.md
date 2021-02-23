@@ -1,5 +1,6 @@
 # Protótipo
 Imagine um programa de computador e desenvolva um prototipo para ele com alguma linguagem script.
+O protótipo online pode ser visto aqui: https://traveler-eta.vercel.app
 
 ## Descrição
 O nosso programa é uma aplicação web que permite usuários buscarem por qualquer cidade (desde que cadastradas na plataforma) para que possam conhecer um pouco sobre ela na hora de planejar aquela viagem tão esperada.
