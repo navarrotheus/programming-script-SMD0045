@@ -1,0 +1,14 @@
+<!doctype html>
+<section class="content">
+  <header>
+    <h1>Envie o número</h1>
+  </header>
+  <form method="post">
+    <label for="number">Número</label>
+    <input name="number" id="number" required>
+    <input type="submit" value="Enviar">
+  </form>
+  {% if number %}
+  <p>{{str(int(number) + 2)}}</p>
+  {% endif %}
+</section>
