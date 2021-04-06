@@ -1,4 +1,4 @@
-## Atividade 4
+## Atividade 5
 Criar um objeto com uma função "privada" (variáveis que não dá para acessar de outro lugar) usando closures
 
 ### Solução
