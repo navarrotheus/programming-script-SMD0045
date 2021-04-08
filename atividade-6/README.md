@@ -9,7 +9,3 @@ Rode o servidor ```python servidor.py```
 Envie uma requisição GET para a rota padrão enviando um número, exemplo:
 GET /2
 O retorno será 4
-
-```
-python servidor.py
-```
