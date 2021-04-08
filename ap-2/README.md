@@ -7,12 +7,8 @@ Esse numero deve ser igual ao número enviado somado com 2.
 ### Solução
 Temos nosso servidor no arquivo _servidor.py_.
 
-Rode a API ```python servidor.py```
+Rode o servidor ```python servidor.py```
 
 Acesse a rota /number
 
 Nela você pode enviar um número pelo formulário, que fará uma requisição POST enviando o número.
-
-```
-python servidor.py
-```
