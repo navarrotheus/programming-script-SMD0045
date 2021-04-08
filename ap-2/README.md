@@ -7,9 +7,11 @@ Esse numero deve ser igual ao número enviado somado com 2.
 ### Solução
 Temos nosso servidor no arquivo _servidor.py_.
 
-Envie uma requisição GET para a rota padrão enviando um número, exemplo:
-GET /2
-O retorno será 4
+Rode a API ```python servidor.py```
+
+Acesse a rota /number
+
+Nela você pode enviar um número pelo formulário, que fará uma requisição POST enviando o número.
 
 ```
 python servidor.py
